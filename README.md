@@ -1,2 +1,0 @@
-# LocadoraVeiculos
-Trabalho PDS2
