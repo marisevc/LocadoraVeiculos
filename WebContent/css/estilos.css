@@ -1,0 +1,31 @@
+
+body {
+	float: none; 
+	margin: 0 auto;
+	width:900px;
+	height:auto;	
+	background-color:#87CEFA;
+	border-radius: 10px;
+}
+
+.logo .img-responsive {
+   float: none; 
+   margin: 0 auto;   
+}
+	
+.logo1 {
+   margin: 0 auto; 
+   font-size: 30px;
+}	
+	
+#btn_novo {
+	margin-left: 15px;	
+}	
+
+label {
+	padding:15px;
+}
+
+#home {
+	padding-top:-5px;
+}
