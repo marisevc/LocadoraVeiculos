@@ -39,7 +39,7 @@ public class Cliente implements Serializable {
 	
 	@Column(name="TELEFONE")
 	private String telefone;
-	
+		
 	public Cliente() {
 		super();
 	}

@@ -49,7 +49,7 @@ public class Locacao implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="CODIGO",referencedColumnName="CODIGO",
 			insertable=false,updatable=false)
-	private Cliente cliente;
+	private Cliente cliente;	
 	
 	public Locacao() {
 		

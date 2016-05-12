@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="ModuloLocacao">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- As 3 meta tags acima *devem* vir em primeiro lugar dentro do `head`; qualquer outro conteúdo deve vir *após* essas tags -->
+    <title>Sistema Locadora de Veiculos</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">  	  
+	<link href="css/estilos.css" rel="stylesheet">	
+
+	<script src="js/angular.min.js"></script>
+	<script src="control/locacaoControl.js"></script>
+	
+ </head>
+ <body ng-controller="locacaoControl">
+    <!-- jQuery (obrigatório para plugins JavaScript do Bootstrap) -->
+    <script src="js/jquery-1.12.2.min.js"></script>
+    <!-- Inclui todos os plugins compilados (abaixo), ou inclua arquivos separadados se necessário -->
+    <script src="js/bootstrap.min.js"></script>
+	<img src="img/logo1.png" class="img-responsive" alt="Imagem responsiva">
+	<div ng-include="'menu.html'"></div>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">Cadastro de Locação</div>
+			<ul class="nav nav-tabs" role="tablist">
+				<li role="presentation" class="active"><a href="#cadastro" aria-controls="cadastro" role="tab" data-toggle="tab">Nova Locacao</a></li>
+				<li role="presentation"><a href="#dados" aria-controls="dados" role="tab" data-toggle="tab">Dados Locacao</a></li>
+			</ul>
+		<!-- Tab panes -->
+		  <div class="tab-content">
+			<div role="tabpanel" class="tab-pane active" id="cadastro">
+			
+			<form>
+			</br>
+				<button type="button" ng-click="novo();" id="btn_novo" class="btn btn-primary">Novo</button>
+
+				<!-- Indica uma ação bem-sucedida ou positiva -->
+				<button type="button" ng-click="salvar();" class="btn btn-success">Salvar</button>
+
+				<!-- Botão contextual para mensagens de alerta informativos -->
+				<button type="button" ng-click="excluir();" class="btn btn-info">Excluir</button>
+
+				<!-- Indica que o cuidado deve ser tomado com esta ação -->
+				<button type="button" ng-click="pesquisar();" class="btn btn-warning">Pesquisar</button>
+			</br></br>
+			  <div class="form-group col-md-3">
+				</br>
+				<label for="exampleInputCodigo">Código</label>
+				<input type="number" disabled="true" class="form-control" ng-model="cliente.codigo" placeholder="Codigo">
+			  </div>
+			  <div class="form-group col-md-3">
+				</br>
+				<label for="exampleInputCodigo">Código</label>
+				<input type="number" disabled="true" class="form-control" ng-model="cliente.codigo" placeholder="Codigo Cliente">
+			  </div>
+			  <div class="form-group col-md-3">
+				</br>
+				<label for="exampleInputCodigo">Código</label>
+				<input type="number" disabled="true" class="form-control" ng-model="locacao.atcodigo" placeholder="Codigo Auto">
+			  </div>	
+			  <div class="form-group col-md-3">
+				</br>
+				<label for="exampleInputKm">Km</label>
+				<input type="number" class="form-control" ng-model="locacao.km" placeholder="Km">
+			  </div>
+			  <div class="form-group col-md-3">
+				</br>
+				<label for="exampleInputValor">Valor</label>
+				<input type="number" class="form-control" ng-model="locacao.valor" placeholder="Insira o Valor">
+			  </div>
+			  <div class="form-group col-md-3">
+				</br>
+				<label for="exampleInputData">Data</label>
+				<input type="text" class="form-control" ng-model="locacao.data" placeholder="Insira a Data">
+			  </div>	  
+			</form>
+			
+			</div>
+			<div role="tabpanel" class="tab-pane" id="dados"></br>
+			<input type="text" class="form-control" ng-model="criterio" placeholder="Efetuei sua pesquisa aqui? " /></br>
+			<table class="table table-hover" >
+			    <th>Codigo Loc</th>
+			    <th>Codigo Cliente</th>
+				<th>Codigo Auto</th>
+				<th>Km</th>
+				<th>Valor</th>
+				<th>Data</th>
+			  
+				<tr ng-repeat="locacaoTabela in locacoes | filter:criterio" ng-click="seleciona(locacaoTabela);">
+					<td>{{locacaoTabela.codigo}}</td>
+					<td>{{locacaoTabela.codigo}}</td>					
+					<td>{{locacaoTabela.atcodigo}}</td>
+					<td>{{locacaoTabela.km}}</td>
+					<td>{{locacaoTabela.valor}}</td>				
+					<td>{{locacaoTabela.data}}</td>				
+				</tr>			  
+			</table>			
+			</div>
+		  </div>
+		</div>
+		</div>
+	</div>			
