@@ -33,7 +33,7 @@
 		  <div class="tab-content">
 			<div role="tabpanel" class="tab-pane active" id="cadastro">
 			
-			<form>
+			<form name="form" ng-submit="form.$valid && salvar()" novalidate>
 			</br>
 				<button type="button" ng-click="novo();" id="btn_novo" class="btn btn-primary">Novo</button>
 
