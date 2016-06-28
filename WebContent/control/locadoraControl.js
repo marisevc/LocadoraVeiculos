@@ -1,6 +1,6 @@
 var app = angular.module('ModuloLocadora',[]);
-app.controller('locadoraControl', function($scope, $http){
-	
+
+app.controller('locadoraControl', function($scope, $http){	
 	var url = 'http://localhost:8080/LocadoraVeiculos/rs/cliente';
 		
 	$scope.salvar = function(){
