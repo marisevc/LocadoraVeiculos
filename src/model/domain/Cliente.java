@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -25,18 +28,28 @@ public class Cliente implements Serializable {
 	@Column(name="CODIGO")
 	private Integer codigo;
 	
+	@Size(min=3,message="0 Nome do cliente precisa ter pelo menos 3 caracteres")
+	@NotNull(message="O campo Nome é obrigatório")
 	@Column(name="NOME")
 	private String nome;
 	
+	@NotNull(message="O campo CPF é obrigatório")
+	@Pattern(regexp="/^([0-9]{11})/",message="O Campo CPF tem que ter 11 digitos sem espaços e sem pontos")
 	@Column(name="CPF")
 	private String cpf;
 	
+	@Size(min=10,message="O Endereço precisa ter pelo menos 10 caracteres")
+	@NotNull(message="O campo Endereço é obrigatório")
 	@Column(name="ENDERECO")
 	private String endereco;
 	
+	@Size(min=10,message="O Endereço precisa ter pelo menos 10 caracteres")
+	@NotNull(message="O campo Cidade é obrigatório")
 	@Column(name="CIDADE")
 	private String cidade;
 	
+	@NotNull(message="O campo Telefone é obrigatório")
+	@Pattern(regexp="/[2-9][0-9]{4}-[0-9]{4}/",message="O Campo Telefone tem que o seguinte padrão xxxx-xxxx ")
 	@Column(name="TELEFONE")
 	private String telefone;
 		

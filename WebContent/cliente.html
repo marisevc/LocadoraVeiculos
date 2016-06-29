@@ -27,21 +27,23 @@
 			</ul>
 		<!-- Tab panes -->
 		  <div class="tab-content">
-			<div role="tabpanel" class="tab-pane active" id="cadastro">
-			
+			<div role="tabpanel" class="tab-pane active" id="cadastro">			
 			<form name="clienteForm" class="css-form" ng-submit="clienteForm.$valid && salvar()" novalidate>
 			</br>
 				<span ng-repeat="mensagem in mensagens">{{mensagem}}<br></span>
 				<div ng-show="clienteForm.$submitted">
 				<div ng-show="clienteForm.nome.$error.required">O campo nome é obrigatório</div>
-	      		<div ng-show="clienteForm.nome.$error.minlength">Nome precisa ter pelo menos 10 caracteres</div>
+	      		<div ng-show="clienteForm.nome.$error.minlength">Nome precisa ter pelo menos 3 caracteres</div>
 	      		<div ng-show="clienteForm.cidade.$error.required">O campo cidade é obrigatório</div>
 	      		<div ng-show="clienteForm.cidade.$error.minlength">Cidade precisa ter pelo menos 10 caracteres</div>
 	      		<div ng-show="clienteForm.endereco.$error.required">Preencha o Endereço</div>
 	      		<div ng-show="clienteForm.endereco.$error.minlength">Endereço precisa ter pelo menos 10 caracteres</div>
 	      		<div ng-show="clienteForm.cpf.$error.required">O campo cpf é obrigatório</div>
 	      		<div ng-show="clienteForm.cpf.$error.pattern">O CPF deve ter 11 numeros sem pontos e sem espaços</div>
+	      		<div ng-show="clienteForm.telefone.$error.required">O campo Telefone é obrigatório</div>
+	      		<div ng-show="clienteForm.telefone.$error.pattern">O Telefone deve ter o seguinte padrão XXXX-XXXX</div>
 	    	</div> 
+	    	</br>
 			<button type="button" ng-click="novo();" id="btn_novo" class="btn btn-primary">Novo</button>
 			<button type="button" ng-click="salvar();" class="btn btn-success">Salvar</button>
 			<button type="button" ng-click="excluir();" class="btn btn-info">Excluir</button>
@@ -55,7 +57,7 @@
 			  <div class="form-group col-md-5">
 				</br>
 				<label for="exampleInputNome">Nome</label>
-				<input type="text" class="form-control" ng-model="cliente.nome" name="nome" placeholder="Insira Nome - Mínimo de 10 caracteres" required="" ng-minlength="10">
+				<input type="text" class="form-control" ng-model="cliente.nome" name="nome" placeholder="Insira Nome - Mínimo de 3 caracteres" required="" ng-minlength="10">
 			  </div>
 			  <div class="form-group col-md-5">
 				</br>
@@ -73,7 +75,7 @@
 			   
 			  <div class="form-group col-md-3">				
 				<label for="exampleInputTelefone">Telefone</label>
-				<input type="text" class="form-control" ng-model="cliente.telefone" name="telefone" placeholder="Insira Telefone"></br>
+				<input type="text" class="form-control" ng-model="cliente.telefone" name="telefone" placeholder="Insira Telefone" required="" ng-pattern="/[2-9][0-9]{4}-[0-9]{4}/"></br>
 			  </div> 						  
 			</form>
 			

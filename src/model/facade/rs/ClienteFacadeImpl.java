@@ -56,7 +56,7 @@ public class ClienteFacadeImpl implements ClienteFacade {
 	@Override
 	@DELETE
 	@Path("/{codigo}")
-	public void deletarCliente(@PathParam("codigo") Integer codigo) {
+	public void excluir(@PathParam("codigo") Integer codigo) {
 		Cliente cliente = new Cliente();
 		cliente.setCodigo(codigo);
 		clienteDao.excluir(cliente);

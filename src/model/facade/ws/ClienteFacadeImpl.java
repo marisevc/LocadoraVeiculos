@@ -42,7 +42,7 @@ public class ClienteFacadeImpl implements ClienteFacade {
 	}
 	
 	@WebMethod
-	public void deletarCliente(@WebParam(name="codigoCliente") Integer codigo) {
+	public void excluir(@WebParam(name="codigoCliente") Integer codigo) {
 		Cliente cliente = new Cliente();
 		cliente.setCodigo(codigo);
 		clienteDao.excluir(cliente);
